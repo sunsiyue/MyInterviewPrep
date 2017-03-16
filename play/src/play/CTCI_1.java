@@ -47,12 +47,42 @@ public class CTCI_1 {
 		ret = ret.substring(0, ret.length()-3);
 		return ret;
 	}
+	
+	public static String compression_1_5(String input) {
+		char[] ca = input.toCharArray();
+		StringBuffer sb = new StringBuffer();
+		int i = 0;
+		while(i<ca.length) {
+			int j = i;
+			while(j<ca.length && ca[i]==ca[j]) {
+				j++;
+			}
+			sb.append(ca[i]);
+			sb.append(j-i+1);
+			i=j;
+		}
+		String ret = new String(sb);
+		System.out.println(ret);
+		if(ret.length() < input.length()) return ret;
+		else return input;
+	}
+	
+	public static boolean isSubString(String s1, String s2) {
+		for(int i=1; i<s2.length(); i++) {
+			String tmp = s2.substring(i) + s2.substring(0, i-1);
+			if(tmp.equals(s1)) return true;
+		}
+		return false;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String test = "sunsiyue sun siyue";
+		String test = "aaabbccc";
+		test.toLowerCase();
+		int[] a = new int[256];
+		Arrays.fill(a, 0);
 		
-		System.out.println(replace_1_4(test));
+		System.out.println(a.toString());
 		
 	}
 
